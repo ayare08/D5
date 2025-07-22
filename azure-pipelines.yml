@@ -20,13 +20,3 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- script: |
-    echo "Listing contents of target directory:"
-    ls -al $(Build.SourcesDirectory)/target
-  displayName: 'Check target folder contents'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/target'
-    ArtifactName: 'war-artifact'
-    publishLocation: 'Container'
