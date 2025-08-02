@@ -20,6 +20,13 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- script: |
+    echo "Checking target folder"
+    ls -l
+    ls -l target
+  displayName: 'List build output'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: 'target'
